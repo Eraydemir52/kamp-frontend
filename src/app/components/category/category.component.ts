@@ -11,6 +11,7 @@ export class CategoryComponent implements OnInit {
 
   categories : Category[]=[];
   currentCategory:Category;
+  defaultCategory:Category;
   constructor(private categoryService:CategoryService) { }
 
   ngOnInit(): void {
@@ -36,13 +37,16 @@ export class CategoryComponent implements OnInit {
      }
   }
 
-  getAllCategoryClass(){
-    if(!this.currentCategory){
-      return "list-group-item active"
-    }
-    else{
-      return "list-group-item"
+  getAllCategoryClass() {//bunu ekleyip tüm ürünlere gelince mavinin diğerinden silindmesini sağladık
+    if (this.currentCategory == this.defaultCategory || !this.currentCategory) {
+      return 'list-group-item active ';
+    } else {
+      return 'list-group-item ';
     }
   }
+  setCurrentCategoryNull(){
+    this.currentCategory=this.defaultCategory;
+  }
+  
 }
 

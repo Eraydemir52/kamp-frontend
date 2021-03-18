@@ -1,5 +1,5 @@
 <ul class="list-group">
-    <li [class]=" getAllCategoryClass()" routerLink="/products">Tüm Ürünler</li>
+    <li  routerLink="/products" [class]="getAllCategoryClass()"(click)="setCurrentCategoryNull()">Tüm Ürünler</li><!--buraya yazdığım [class] ve (click)sayesinde diğer ürünlere basıldığında tüm ürünlere gelice mavi olucak--> 
     <li (click)="setCurrentCategory(category)" 
      routerLink="/products/category/{{category.categoryId}}"
 
